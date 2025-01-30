@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-section {
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: #d6c7ad;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: bisque;
+    }
+
+    .contact-form {
+      background-color: white;
+      color: black;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-form:hover {
+      transform: scale(1.02);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+      position: relative;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+
+    input:focus ~ label, textarea:focus ~ label {
+      color: #007bff;
+      top: -10px;
+      font-size: 0.9rem;
+    }
+
+    input:not(:placeholder-shown), textarea:not(:placeholder-shown) {
+      border-color: #007bff;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #003d80;
+      transform: scale(1.05);
+    }
+
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .full-screen-video {
+        width: 100vw; /* 100% of the viewport width */
+        height: auto;  /* Maintain aspect ratio */
+        display: block; /* Remove any default spacing */
+    }
+
+    .image-map {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .image-map img {
+      max-width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .image-map img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Keyframes for sliding animation */
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Description Section */
+    .description {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      text-align: justify;
+      font-style: italic;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideInFromLeft 1s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Trigger animation on scroll */
+    .description[data-visible="true"] {
+      animation: slideInFromLeft 1s ease-out forwards;
+    }
+
+    /* Indie Sentences Slideshow */
+    .indie-slider {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 50px;
+      background-color: black;
+    }
+
+    .indie-slider-wrapper {
+      display: flex;
+      animation: slide 30s infinite;
+    }
+
+    .indie-slider-item {
+      flex: 0 0 100%;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 15px 0;
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      white-space: nowrap;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      20% {
+        transform: translateX(-100%);
+      }
+      40% {
+        transform: translateX(-200%);
+      }
+      60% {
+        transform: translateX(-300%);
+      }
+      80% {
+        transform: translateX(-400%);
+      }
+      100% {
+        transform: translateX(-500%);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .indie-slider-item {
+        font-size: 1.2rem;
+      }
+    }
+
+    .branches-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.branches-section h2 {
+  color: #d6c7ad;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.branches-section p {
+  font-size: 1.2rem;
+  color: bisque;
+  margin-bottom: 30px;
+}
+
+.branches-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.branch-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.branch-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.branch-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.branch-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.branch-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.branch-button {
+  background-color: tan;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.branch-button:hover {
+  background-color: papayawhip;
+  transform: scale(1.05);
+}
+
+.full-screen-video {
+        width: 100vw; /* 100% of the viewport width */
+        height: auto;  /* Maintain aspect ratio */
+        display: block; /* Remove any default spacing */
+    }
+
+    .footer-column {
+      color: black;
+      flex: 1;
+      padding: 10px;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: black;
+      font-size: 16px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .footer-column a {
+      color: black;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size:20px;
+      color: #555;
+      background-color: #f8f8f8;
+      padding: 10px 0;
+      border-top: 17px solid #faf8f8;
+      font-family: 'Pacifico', cursive;
+    }
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer a:hover {
+      color: #000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+        <a href="#" class="logo">Tentang Bulan<span>.</span></a>
+        <a class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="cafemenu.html">Menu</a>
+            <a href="aboutusnew.html">About Us</a>
+            <a href="contactus.html">Contact and Location</a>
+            <a href="question.html">FAQ</a> 
+    </nav>
+</header>
+
+<br><br><br><br>
+
+  <div style="text-align:center;">
+  <audio controls autoplay>
+  <source src="audio/golden_eye_backsound_aesthetic_backsound_youtube_128_ytshorts_savetube.mp3" type="audio/ogg">
+  <source src="audio/golden_eye_backsound_aesthetic_backsound_youtube_128_ytshorts_savetube.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </div>
+  </audio>
+
+  <section class="contact-section">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Reach out to us with any questions or feedback.</p>
+      
+      <form class="contact-form" action="#" method="post">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+      <div class="social-icons"> 
+        <a href="https://www.facebook.com/share/18a7DSNVUs/" target="_self">
+          <img src="images/fb.jpg">
+        </a>
+        <a href="https://www.tiktok.com/@tentang.bulancafe" target="_blank">
+          <img src="images/tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://www.instagram.com/tentang.bulan.cafe/" target="_self">
+          <img src="images/ig.jpg" alt="Instagram">
+        </a>
+        <a href="mailto:your-asyraf000004@example.com" target="_blank">
+          <img src="images/email.jpg" alt="Email">
+        </a>
+        <a href="https://wa.me/60183620421" target="_self">
+          <img src="images/wsp.jpg" alt="WhatsApp">
+        </a>
+      </div>
+
+
+      <!-- Description of Map -->
+      <div class="image-map">
+        <h2 align="center">Our Locations</h2>
+        <p align="center">Click on the map to explore Tentang Bulan Cafe:</p>
+        <img src="images/selangor-area-map.png" usemap="#image-map" alt="Map of Selangor area">
+        <map name="image-map">
+          <area target="_blank" 
+                alt="MAIN_BRANCH_TENTANG_BULAN_CAFE" 
+                title="MAIN_BRANCH_TENTANG_BULAN_CAFE" 
+                href="https://www.google.com/maps/@3.245431,101.4452916,3a,75y,284.7h,87.22t/data=!3m7!1e1!3m5!1sxK-5ypLY8cQrKvju47GgGw!2e0!6shttps://streetviewpixels-pa.googleapis.com/v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=2.780000000000001&panoid=xK-5ypLY8cQrKvju47GgGw&yaw=284.7!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDExMC4wIKXMDSoASAFQAw==" 
+                coords="300,200,50" 
+                shape="circle">
+        </map>
+      </div>
+
+      <div class="description">
+        <h3><font color="black">Why We Chose Tentang Bulan Cafe in Tanjung Karang</font></h3>
+        <p><font color="#2c3e50">
+          Tanjung Karang, Selangor, is a hidden gem that embodies serenity and natural beauty, making it an ideal location for our main branch of Tentang Bulan Cafe. Surrounded by lush greenery and expansive paddy fields, this tranquil area offers a refreshing escape from bustling city life. Its calm and picturesque atmosphere resonates deeply with our vision of providing a relaxing and aesthetic space where visitors can unwind, enjoy delicious meals, and forge meaningful connections.
+        </p></font>
+        <p><font color="#2c3e50">
+          The strategic location of Tanjung Karang enhances its appeal. Situated within easy reach of major highways and towns, it is accessible to both locals and travelers seeking unique dining experiences. The warm and welcoming community adds to its charm, creating a sense of belonging for everyone who visits. At Tentang Bulan Cafe, we aim to integrate into this vibrant community by offering a space that feels like home, whether you're stopping by for a cup of coffee or celebrating a special occasion with loved ones.
+        </p></font>
+        <p><font color="#2c3e50">
+          Beyond its natural beauty and accessibility, Tanjung Karang represents an opportunity to blend modern cafe culture with local traditions. The area’s rich cultural heritage inspires our menu, which features a fusion of classic local flavors and innovative culinary creations. By choosing Tanjung Karang as our flagship location, we hope to contribute to its growing reputation as a destination for relaxation and culinary excellence. Tentang Bulan Cafe is more than a cafe—it's a sanctuary for creativity, connection, and unforgettable moments.
+        </p></font>
+      </div>
+    </div>
+
+      <!-- Indie Sentences Slideshow -->
+      <div class="indie-slider">
+        <div class="indie-slider-wrapper">
+          <div class="indie-slider-item"><b>Indulge in the perfect blend of flavors at Tentang Bulan Cafe.</b></div>
+          <div class="indie-slider-item"><b>Where every sip of coffee tells a story.</b></div>
+          <div class="indie-slider-item"><b>Relax, unwind, and let the coffee do the talking.</b></div>
+          <div class="indie-slider-item"><b>Come for the vibes, stay for the memories.</b></div>
+          <div class="indie-slider-item"><b>Experience a slice of serenity in every cup.</b></div>
+          <div class="indie-slider-item"><b>The world fades away in our cozy corners.</b></div>
+          <div class="indie-slider-item"><b>Find your happy place with every bite.</b></div>
+          <div class="indie-slider-item"><b>More than just coffee—it's an experience.</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <video autoplay muted loop class="full-screen-video">
+    <source src="video/Kávé összefoglaló - marketing videó.mp4" type="video/mp4">
+    <source src="video/Kávé összefoglaló - marketing videó.mp4" type="video/ogg">
+    Your browser does not support the video tag.
+</video>
+
+  <section class="branches-section">
+    <h2>Our Branches</h2>
+    <p><b>North</b></p>
+    <div class="branches-container">
+      <!-- Branch 1 -->
+      <div class="branch-card">
+        <h3>TASEK GELUGOR</h3>
+        <div class="branch-image">
+          <img src="images/sewa 1.jpg" alt="Branch 1">
+        </div>
+        <p class="branch-description"><font color="#444">We chose Tasek Gelugor for its serene environment, lush greenery, peaceful atmosphere, and proximity to natural attractions.</font></p>
+        <a href="https://www.google.com/maps/@5.4849832,100.4900873,3a,75y,324.43h,92t/data=!3m10!1e1!3m8!1sNuY1pbUVKMZhFwBkY4fvNw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.002052458637962%26panoid%3DNuY1pbUVKMZhFwBkY4fvNw%26yaw%3D324.4327325801447!7i13312!8i6656!9m2!1b1!2i49?entry=ttu&g_ep=EgoyMDI1MDEyNi4wIKXMDSoASAFQAw%3D%3D" class="branch-button">Go</a>
+      </div>
+      <!-- Branch 2 -->
+      <div class="branch-card">
+        <h3>BALING</h3>
+        <div class="branch-image">
+          <img src="images/sewa 2.jpg" alt="Branch 2">
+        </div>
+        <p class="branch-description"><font color="#444">We chose Baling for its serene natural beauty, lush greenery, rolling hills, tranquil rivers, breathtaking landscapes, and peaceful ambiance.</font></p>
+        <a href="https://www.google.com/maps/@5.654968,100.8743329,3a,75y,345.23h,91.27t/data=!3m10!1e1!3m8!1spMna973lMw3dpHoPwnfeJg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.266303964185937%26panoid%3DpMna973lMw3dpHoPwnfeJg%26yaw%3D345.23365241151515!7i16384!8i8192!9m2!1b1!2i49?entry=ttu&g_ep=EgoyMDI1MDEyNi4wIKXMDSoASAFQAw%3D%3D" class="branch-button">Go</a>
+      </div>
+      <!-- Branch 3 -->
+      <div class="branch-card">
+        <h3>ARAU</h3>
+        <div class="branch-image">
+          <img src="images/sewa 3.png" alt="Branch 3">
+        </div>
+        <p class="branch-description"><font color="#444">We chose Arau for its serene ambiance, golden paddy fields, whispering breeze, timeless charm, poetic landscapes, and tranquil allure.</font></p>
+        <a href="https://www.google.com/maps/uv?pb=!1s0x304ca300499d229d%3A0xc6abe11d9800a160!3m1!7e115!4s%2Fmaps%2Fplace%2Ftaman%2Btengku%2Bbudriah%2F%406.4318605%2C100.2970013%2C3a%2C75y%2C244.88h%2C90t%2Fdata%3D*213m4*211e1*213m2*211sQNxNk5agDJgvNcVsdVynCQ*212e0*214m2*213m1*211s0x304ca300499d229d%3A0xc6abe11d9800a160%3Fsa%3DX%26ved%3D2ahUKEwjvrI-ovJmLAxV0wzgGHXlkOpAQpx96BAgUEAA!5staman%20tengku%20budriah%20-%20Google%20Search!15sCgIgARICCAI&imagekey=!1e2!2sQNxNk5agDJgvNcVsdVynCQ&cr=le_a7&hl=en&ved=1t%3A206134&ictx=111" class="branch-button">Go</a>
+      </div>
+      <!-- Branch 4 -->
+      <div class="branch-card">
+        <h3>BOTA</h3>
+        <div class="branch-image">
+          <img src="images/sewa 4.jpeg" alt="Branch 4">
+        </div>
+        <p class="branch-description"><font color="#444">We chose Bota, Perak, for its rustic tranquility, river's gentle embrace, golden sunsets, lush greenery, serene charm, and timeless beauty.</font></p>
+        <a href="https://example.com/branch4" class="branch-button">Go</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="branches-section">
+    <h2>Our Branches</h2>
+    <p><b>South</b></p>
+    <div class="branches-container">
+      <!-- Branch 1 -->
+      <div class="branch-card">
+        <h3>PD WATERFRONT</h3>
+        <div class="branch-image">
+          <img src="images/sewa 5.png" alt="Branch 1">
+        </div>
+        <p class="branch-description"><font color="#444">We chose PD Waterfront for its coastal charm, soothing ocean breeze, breathtaking sunsets, serene ambiance, vibrant atmosphere, and scenic beauty.</font></p>
+        <a href="https://www.google.com/maps/@2.5209247,101.8016547,3a,75y,311.3h,92.16t/data=!3m7!1e1!3m5!1sxPu1-q9WuB08gqaFLfJ0ZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-2.1599999999999966%26panoid%3DxPu1-q9WuB08gqaFLfJ0ZA%26yaw%3D311.3!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI1MDEyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="branch-button">Go</a>
+      </div>
+      <!-- Branch 2 -->
+      <div class="branch-card">
+        <h3>TANJUNG KLING</h3>
+        <div class="branch-image">
+          <img src="images/sewa 6.png" alt="Branch 2">
+        </div>
+        <p class="branch-description"><font color="#444">We chose Tanjung Kling for its coastal tranquility, sun-kissed shores, gentle waves, mesmerizing sunsets, soothing sea breeze, and timeless allure.</font></p>
+        <a href="https://www.google.com/maps/@2.2214674,102.1885826,3a,90y,224.62h,107.64t/data=!3m10!1e1!3m8!1s1XkK-eJwq8O0UQp85FrEuw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-17.638286746128557%26panoid%3D1XkK-eJwq8O0UQp85FrEuw%26yaw%3D224.6204406538391!7i16384!8i8192!9m2!1b1!2i25?entry=ttu&g_ep=EgoyMDI1MDEyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="branch-button">Go</a>
+      </div>
+    </div>
+  </section>
+
+      <!-- Indie Sentences Slideshow -->
+      <div class="indie-slider">
+        <div class="indie-slider-wrapper">
+          <div class="indie-slider-item"><b>CONTACT OUR TOP MANAGEMENT</b></div>
+          <div class="indie-slider-item"><b>MR. AMIERUL MUKMIN (016-859 5062)</b></div>
+          <div class="indie-slider-item"><b>MS. CHE NUR RISYA NABILA (011-6171 3712)</b></div>
+          <div class="indie-slider-item"><b>MR. MUHAMMAD ASYRAF (018-362 0421)</b></div>
+          <div class="indie-slider-item"><b>MS. MURNI SHAFIQAH (011-1057 8665)</b></div>
+          <div class="indie-slider-item"><b>MS. PUTERI NAZATUL ADAWIAH (013-549 7084)</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    &copy; 2025 <a href="#">Tentang Bulan Cafe</a>. All rights reserved.
+  </div>
+
+
+
+  <script>
+    // JavaScript to trigger animation when the section is in view
+    document.addEventListener("DOMContentLoaded", () => {
+      const description = document.querySelector(".description");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            description.setAttribute("data-visible", "true");
+          }
+        });
+      });
+
+      observer.observe(description);
+    });
+
+        // JavaScript to trigger animation when the section is in view
+        document.addEventListener("DOMContentLoaded", () => {
+      const description = document.querySelector(".description");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            description.setAttribute("data-visible", "true");
+          }
+        });
+      });
+
+      observer.observe(description);
+    });
+  </script>
+
+</body>
+</html>
+
+ 
