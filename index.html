@@ -1,0 +1,419 @@
+<html>
+    <head>
+        <title>Tentang Bulan</title>
+        <link rel="stylesheet" href="style.css">
+        <!--Google Fonts Link For Icon-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    </head>
+    <style>
+        body
+        {
+            background: url("images/bghome.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        header
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+        }
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .hero-section .content {
+            color: whitesmoke;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .hero-section .content h1 {
+            color: whitesmoke;
+            max-width: 600px;
+            font-size: 4em;
+            position: absolute;
+            transform: translate(-0%,-20%);
+        }
+        .hero-section .content h1:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 2px whitesmoke;
+        }
+        .hero-section .content h1:nth-child(2) {
+            color: #6F4E37;
+            animation: animate 4s ease-in-out infinite;
+        }
+        @keyframes animate {
+            0%,100%
+            {
+                clip-path: polygon(0 48%, 18% 45%, 36% 48%, 53% 56%,
+                69% 59%, 84% 54%, 100% 49%, 100% 100%, 0% 99%);
+            }
+            50%
+            {
+                clip-path: polygon(0 70%, 15% 61%, 32% 63%, 49% 52%,
+                72% 58%, 83% 47%, 100% 41%, 100% 100%, 0% 99%);
+            }
+        }
+        .hero-section .content p {
+            font-weight: 300;
+            margin-top: 15px;
+            max-width: 600px;
+        }
+        .button {
+            background: papayawhip;
+            color: black;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 38px;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .button:hover {
+            color: #fff;
+            background: tan;
+        }
+        section {
+            padding: 8px 9%;
+        }
+        .sub-heading {
+            background: #86765a;
+        }
+        .welcome .box-container {
+            display: flex;
+            gap: 10px;
+        }
+        .welcome .box-container .box {
+            width: 33%;
+            background: papayawhip;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            padding-bottom: 1%;
+        }
+        .welcome .box-container .box .image {
+            height: 300;
+            overflow: hidden;
+            position: relative;
+        }
+        .welcome .box-container .box .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border: 1px solid #ddd; /* Gray border */
+            border-radius: 4px;  /* Rounded border */
+            padding: 5px; /* Some padding */
+        }
+        .welcome .box-container .box .image:hover img {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+            transform: scale(1.1);
+        }
+        .welcome .box-container .box .content p {
+            color: black;
+            font-size: 12;
+            font-weight: 300;
+            padding: 6px 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .icons a {
+            background: #ecf0f3;
+            position: relative;
+            height: 60px;
+            width: 60px;
+            margin: 5px 30px;
+            display:inline-flex;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s;
+            box-shadow: -3px -3px 7px #ffffff;
+            3px 3px 5px #ceced1;
+        }
+        .icons a:hover:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+            background: #ecf0f3;
+            box-shadow: -3px -3px 7px #ffffff;
+                        3px 3px 5px #ceced1;
+        }
+        .icons a i {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            font-size: 25px;
+            line-height: 60px;
+        }
+        .icons a: hover i{
+            transform: scale(0.9);
+        }
+        .our-team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(25px,1fr));
+            grid-gap: 10px;
+        }
+        .our-team .item .image img {
+            width: 100%;
+        }
+        .our-team .item {
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .our-team .item:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            display: none;
+            top: 0;left: 0;right: 0;bottom: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 5;
+        }
+        .our-team .item:hover.item:before {
+            display: block;
+        }
+        .our-team .item .team-info {
+            position: absolute;
+            top: 130%;
+            left: 0;right: 0;bottom: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+            align-items: center;
+            transition: 1s;
+            cursor: pointer;
+        }
+        .our-team .item .team-info h2 {
+            font-size: 15px;
+            color: #fff;
+            padding: .8rem 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .our-team .item .team-info span {
+            font-size: 15px;
+            color: bisque;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+        .our-team .item:hover .team-info {
+            top: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size:20px;
+            color: #555;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-top: 17px solid #faf8f8;
+            font-family: 'Pacifico', cursive;
+        }
+        .footer a {
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            color: #000;
+        }
+    </style>
+    <body>
+        <header>
+            <nav class="navbar">
+                <a href="#" class="logo">Tentang Bulan<span>.</span></a>
+                <a class="menu-links">
+                    <a href="index.html">Home</a>
+                    <a href="cafemenu.html">Menu</a>
+                    <a href="aboutusnew.html">About Us</a>
+                    <a href="contactus.html">Contact and Location</a>
+                    <a href="question.html">FAQ</a> 
+            </nav>
+        </header>
+
+        <section class="hero-section">
+            <div class="content">
+                <h1>But First, Coffee.</h1>
+                <h1>But First, Coffee.</h1>
+                <br><br><br>
+                <p><h2>Procaffeinating.</h2></p>
+                <p>(n.)The tendency to not start anything until you've had a cup of coffee.
+                </p>
+                <br>
+                <a href="cafemenu.html" class="button">Order Now</a>
+            </div>
+        </section>
+
+        <div align="center">
+        <hr size="5" color="tan" width="90%">
+        </div>
+
+        <br>
+
+        <section class="welcome">
+            <center><h1 class="sub-heading"><font color="azure">Where Coffee Meets Your Soul</font></h1></center>
+
+            <br>
+
+            <div class="box-container">
+                <div class="box">
+                    <div class="image">
+                        <img src="images/coffeeandcomfort.jpg">
+                    </div>
+
+                    <div class="content">
+                        <h3><strong><font color="#2c3e50">Coffee & Comfort</font></h3></strong>
+                        <p>Coffee provides warmth both physically and emotionally. A hot cup can be a source of comfort during
+                            cold months or on a stressful day. This makes coffee the perfect symbol of relaxation and self-care.</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="images/brewing.jpg">
+                    </div>
+
+                    <div class="content">
+                        <h3><strong><font color="#2c3e50">Brewing Philosophy</font></h3></strong>
+                        <p>We believe that coffee should be an experience. From the first smell of freshly ground beans to that first satisfying sip,
+                            every detail matters. Whether you’re enjoying a classic espresso or exploring one of our signature brews, we focus on precision
+                            and quality at every step. The result? A rich, flavorful cup that’s more than just a caffeine fix—it’s a moment of joy.</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="image">
+                        <img src="images/ecofriendly.png">
+                    </div>
+
+                    <div class="content">
+                        <h3><strong><font color="#2c3e50">Eco-Friendly Practices</font></h3></strong>
+                        <p>Reusable cups, compostable packaging, and energy-efficient appliances are important to many
+                            coffee drinkers. Showcasing your commitment to the environment can resonate with a large audience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+
+        <div align="center">
+            <hr size="5" color="tan" width="90%">
+            </div>
+    
+            <br>
+
+            <section class="tbteam">
+                <center><h1 class="sub-heading"><font color="azure">Meet Our Team</font></h1></center>
+
+                <br><br>
+
+                <div class="our-team">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/ceo.jpg" height="300" border="5" hspace="15" vspace="2">
+                        </div>
+
+                        <div class="team-info">
+                            <div>
+                                <h2><strong>Asyraf Syamsu</strong></h2>
+                                <span>CEO & Founder</span>
+
+                                <div class="icons">
+                                <a href="mailto:asyraf00004@gmail.com" class="envelope"><i target="_blank" class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/storemanager.jpg" height="300" border="5" hspace="15" vspace="2">
+                        </div>
+
+                        <div class="team-info">
+                            <div>
+                                <h2><strong>Murni Shaf</strong></h2>
+                                <span>Store Manager</span>
+
+                                <div class="icons">
+                                <a href="mailto:murnishafiqah83@gmail.com" class="envelope"><i target="_blank" class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/topbarista1.jpg" height="300" border="5" hspace="15" vspace="2">
+                        </div>
+
+                        <div class="team-info">
+                            <div>
+                                <h2><strong>Ca Bella</strong></h2>
+                                <span>Top Barista 1</span>
+
+                                <div class="icons">
+                                <a href="mailto:cherisyaa@gmail.com" class="envelope"><i target="_blank" class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/topbarista2.jpg" height="300" border="5" hspace="15" vspace="2">
+                        </div>
+
+                        <div class="team-info">
+                            <div>
+                                <h2><strong>Mintaula</strong></h3>
+                                <span>Top Barista 2</span>
+
+                                <div class="icons">
+                                <a href="mailto:mierulmukmin1" class="envelope"><i target="_blank" class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/topbarista3.jpg" height="300" border="5" hspace="15" vspace="2">
+                        </div>
+
+                        <div class="team-info">
+                            <div>
+                                <h2><strong>Nazatul Mohd</strong></h3>
+                                <span>Top Barista 3</span>
+
+                                <div class="icons">
+                                <a href="mailto:putrinzatul@gmail.com" class="envelope"><i target="_blank" class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer">
+                &copy; 2025 <a href="#">Tentang Bulan Cafe</a>. All rights reserved.
+              </div>
+        
+            
+    </body>
+</html>

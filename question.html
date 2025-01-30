@@ -1,0 +1,202 @@
+<html>
+<head>
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #d6c7ad;
+        }
+
+        .header {
+            background: burlywood;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .faq-section {
+            background-color: tan;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            margin: 0;
+            padding: 10px;
+            background-color: bisque;
+            border: none;
+            text-align: left;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .answer {
+            font-size: 16px;
+            color: black;
+            margin-top: 10px;
+            display: none;
+            padding: 10px;
+            background-color: beige;
+            border-left: 3px solid blanchedalmond;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .question:hover {
+            background-color: #e2c6a6;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size:20px;
+            color: #555;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-top: 17px solid #faf8f8;
+            font-family: 'Pacifico', cursive;
+        }
+        .footer a {
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+        
+    <header>
+    <nav class="navbar">
+    <a href="" class="logo">Tentang Bulan<span>.</span></a>
+    <a class="menu-links">
+        <a href= "index.html">Home</a>
+        <a href= "cafemenu.html">Menu</a>
+        <a href= "aboutusnew.html">About Us</a>
+        <a href= "contactus.html">Contact and Location</a>
+        <a href= "question.html">FAQ</a>
+    </nav>
+    </header>
+
+    <br><br><br>
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-item faq-section">
+        <button class="question">What are your hours of operation?</button>
+        <div class="answer">
+            We are open every day from 7:00 AM to 9:00 PM. Feel free to stop by during our business hours!
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Do you offer free Wi-Fi?</button>
+        <div class="answer">
+            Yes, we offer free Wi-Fi to all customers. Simply ask the staff for the password when you arrive.
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Can I make a reservation for a table?</button>
+        <div class="answer">
+            Currently, we do not accept reservations, but we have plenty of seating available! If you have a large group, we recommend arriving a little earlier to get the best spot.
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Do you offer takeout or delivery?</button>
+        <div class="answer">
+            Yes, we offer both takeout and delivery! You can place an order directly at our counter or through our website for delivery to your location.
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">What payment methods do you accept?</button>
+        <div class="answer">
+            We accept all major credit cards, debit cards, and cash. We also accept mobile payment options like Apple Pay and Google Pay.
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Are your ingredients locally sourced?
+        </button>
+        <div class="answer">
+            We believe in supporting local farmers and suppliers. Many of our ingredients, especially for our baked goods and seasonal dishes, are sourced from nearby farms and vendors
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Can I customize my drink order?</button>
+        <div class="answer">
+            Absolutely! You can customize your drinks by adjusting the milk type, sweetness level, and adding extra flavors or toppings. Just let us know what you'd like, and we'll prepare it to your taste!
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Do you provide a student discount?</button>
+        <div class="answer">
+            Yes, we offer a 10% discount for students! Just show your student ID at checkout to receive your discount.
+        </div>
+    </div>
+
+    <div class="faq-item faq-section">
+        <button class="question">Can I use your cafe for a meeting or study session?</button>
+        <div class="answer">
+            Yes, we welcome customers who want to work or study! We have plenty of seating with free Wi-Fi. For larger meetings, we recommend arriving early to secure a table.
+        </div>
+    </div>
+
+    <script>
+    
+        const questions = document.querySelectorAll('.question');
+
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+             
+                const answer = question.nextElementSibling;
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                } else {
+                    answer.style.display = "block";
+                }
+            });
+        });
+    </script>
+
+<hr size="3" color="black"  width="99%">
+
+<h4 align="center">Please contact us if you encounter any issues with our service.</h4>
+
+<div class="footer">
+    &copy; 2025 <a href="#">Tentang Bulan Cafe</a>. All rights reserved.
+  </div>
+
+</body>
+</html>
+

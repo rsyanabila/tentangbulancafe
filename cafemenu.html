@@ -1,0 +1,526 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes wave {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(-10px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .menu-header h1 {
+      display: inline-block;
+      animation: wave 2s infinite;
+      font-family: 'Pacifico', cursive;
+    }
+      .menu-header h1 {
+        display: inline-block;
+        animation: wave 2s infinite;
+      }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #DABC94;
+      color: #333;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .menu-header h1 {
+      font-size: 3rem;
+      color: #0f0b0b;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: #AB7E4C;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .menu-item-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .menu-item-content h3 {
+      font-size: 1.5rem;
+      color: #0f1010;
+      margin: 10px 0;
+    }
+
+    .menu-item-content p {
+      font-size: 1rem;
+      color: #555;
+      margin: 5px 0 15px;
+    }
+
+    .menu-item-content .price {
+      font-size: 1.2rem;
+      color: #050505;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size:20px;
+      color: #555;
+      background-color: #f8f8f8;
+      padding: 10px 0;
+      border-top: 17px solid #faf8f8;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .footer a {
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      color: #000;
+    }
+
+    {box-sizing: border-box;}
+    body {font-family: Verdana, sans-serif;}
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 850px;
+      position: relative;
+      margin: auto;
+      border: 7px solid  #060606;
+    }
+
+    /* Caption text */
+    .text {
+      color: #fcf8f8e8;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 2.0s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 3s; 
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .modal h3 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    .modal p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .modal .price {
+      font-size: 1.5rem;
+      color: #e63946;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .modal .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal .close:hover,
+    .modal .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .payment-button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    
+
+    @keyframes fade {
+      from {opacity: .5} 
+      to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 1100px) {
+      .text {font-size: 11px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+        <a href="#" class="logo">Tentang Bulan<span>.</span></a>
+        <a class="menu-links">
+            <a href="index.html">Home</a>
+            <a href="cafemenu.html">Menu</a>
+            <a href="aboutusnew.html">About Us</a>
+            <a href="contactus.html">Contact and Location</a>
+            <a href="question.html">FAQ</a> 
+    </nav>
+</header>
+
+<br><br><br>
+
+  <div class="menu-container">
+    <div class="menu-header">
+      <h1>Café Menu</h1>
+    </div>
+
+    
+
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 5</div>
+        <img src="images/cake baru.jpg" style="width:100%">
+        <div class="text">Delicious Cake</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 5</div>
+        <img src="images/espresso.jpg" style="width:100%">
+        <div class="text">Fresh Coffee</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 5</div>
+        <img src="images/bombolonii.jpg" style="width:100%">
+        <div class="text">Tasty Bomboloni</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 5</div>
+        <img src="images/spicy chicken wings.jpeg" style="width:100%">
+        <div class="text">Chicken Wings</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 5</div>
+        <img src="images/nachos.jpg" style="width:100%">
+        <div class="text">Cheesy Nachos</div>
+      </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+      <span class="dot"></span> 
+    </div>
+    <br>
+    <br>
+
+    <div class="menu-grid">
+        <div class="menu-item" onclick="openModal('images/spicy chicken wings.jpeg', 'Spicy Chicken Wings', 'Crispy and spicy chicken wings served with dipping sauce.', 'RM22.90')">
+          <img src="images/spicy chicken wings.jpeg" alt="Spicy Chicken Wings">
+          <div class="menu-item-content">
+            <h3>Spicy Chicken Wings</h3>
+            <p class="price">RM22.90</p>
+          </div>
+        </div>
+        <div class="menu-item" onclick="openModal('images/nachos.jpg', 'Cheesy Nachos', 'Crispy nachos topped with melted cheese and jalapeños.', 'RM15.00')">
+            <img src="images/nachos.jpg" alt="Cheesy Nachos">
+            <div class="menu-item-content">
+              <h3>Cheesy Nachos</h3>
+              <p class="price">RM15.00</p>
+            </div>
+          </div>
+
+          <div class="menu-item" onclick="openModal('images/cheese burger.jpg', 'Classic Cheeseburger', 'Juicy cheeseburger with lettuce, tomato, and sauce.', 'RM7.00')">
+            <img src="images/cheese burger.jpg" alt="Classic Cheeseburger">
+            <div class="menu-item-content">
+              <h3>Classic Cheeseburger</h3>
+              <p class="price">RM7.00</p>
+            </div>
+          </div>
+
+          <div class="menu-item" onclick="openModal('images/fries.jpg', 'French Fries', 'Crispy fries with beautiful taste made from russet potatoes.', 'RM7.00')">
+            <img src="images/fries.jpg" alt="French Fries">
+            <div class="menu-item-content">
+              <h3>French Fries</h3>
+              <p class="price">RM6.00</p>
+            </div>
+          </div>
+
+    
+
+      <div class="menu-item" onclick="openModal('images/cake baru.jpg', 'Cake', 'Indulge in our rich and creamy chocolate cake topped with fresh strawberries and chocolate curls, perfect for any sweet craving.', 'RM29.90')">
+        <img src="images/cake baru.jpg" alt="Menu Item 5">
+        <div class="menu-item-content">
+          <h3>Cake </h3>
+          <p class="price">RM29.90</p>
+        </div>
+      </div> 
+      
+      <div class="menu-item" onclick="openModal('images/pasta.jpg', 'Creamy Pasta', 'Delight in our luscious creamy pasta, perfectly cooked and tossed in a rich, velvety sauce, delivering comfort in every bite.', 'RM13.00')">
+        <img src="images/pasta.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Creamy Pasta</h3>
+          <p class="price">RM13.00</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/bombolonii.jpg', 'Bomboloni', 'Savor our fluffy bomboloni, filled with creamy goodness and dusted with a touch of powdered sugar—a sweet treat to brighten your day!, velvety sauce, delivering comfort in every bite.', 'RM8.90')">
+        <img src="images/bombolonii.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Bomboloni</h3>
+          <p class="price">RM8.90</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/churros.jpeg', 'Churros', 'Enjoy our crispy churros, coated with cinnamon sugar and served with a rich chocolate dipping sauce—a perfect snack to satisfy your sweet tooth!', 'RM5.50')">
+        <img src="images/churros.jpeg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Churros </h3>
+          <p class="price">RM5.50</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/waffle.jpg', 'Waffle', 'A dish made from leavened batter or dough that is cooked between two plates that are patterned to give a characteristic size', 'RM10.00')">
+        <img src="images/waffle.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Waffle</h3>
+          <p class="price">RM10.00</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/pizza cheese.jpg', 'Cheese Pizza', 'A simple yet perfect blend of our homemade tomato sauce, generously topped with fresh, melted mozzarella cheese, delivering the ultimate comfort food experience on a crispy, hand-tossed crust.', 'RM12.00')">
+        <img src="images/pizza cheese.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Cheese Pizza</h3>
+          <p class="price">RM12.00</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/ice-cold-water-in-a-glass.jpg', 'Plain Water', 'Fresh mineral water for our lovely customer.', 'RM0.50')">
+        <img src="images/ice-cold-water-in-a-glass.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Plain Water</h3>
+          <p class="price">RM0.50</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/espresso.jpg', 'Espresso', 'A classic Italian espresso, expertly crafted with freshly ground beans, delivering a robust flavor in a small serving.', 'RM8.00')">
+        <img src="images/espresso.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Espresso</h3>
+          <p class="price">RM8.00</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/latte.jpeg', 'Latte', 'Tasteful milk coffee that boasts a silky layer of foam as a real highlight of the drink.', 'RM7.00')">
+        <img src="images/latte.jpeg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Latte</h3>
+          <p class="price">RM7.00</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/mocha.jpg', 'Mocha', 'a shot of espresso and some steamed milk with chocolate syrup or coco-powder. The drink is served with a topping of milk foam or whipped cream.', 'RM8.50')">
+        <img src="images/mocha.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Mocha</h3>
+          <p class="price">RM8.50</p>
+        </div>
+      </div>
+
+      <div class="menu-item" onclick="openModal('images/hot chocolate.jpg', 'Hot Chocolate', 'Heated drink consisting of shaved or melted chocolate or cocoa powder, heated milk or water, and usually a sweetener.', 'RM6.00')">
+        <img src="images/hot chocolate.jpg" alt="Menu Item 6">
+        <div class="menu-item-content">
+          <h3>Hot Chocolate</h3>
+          <p class="price">RM6.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 <a href="#">Tentang Bulan Cafe</a>. All rights reserved.
+  </div>
+
+   <!-- Modal -->
+   <div id="menuModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Menu Item">
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <p class="price" id="modalPrice"></p>
+      <button class="payment-button" onclick="makePayment()">Order Now</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 5000); // Change image every 4 seconds
+    }
+
+    
+
+    function openModal(image, title, description, price) {
+      document.getElementById('modalImage').src = image;
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDescription').innerText = description;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('menuModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('menuModal').style.display = 'none';
+    }
+
+    function makePayment() {
+      alert('Your order has been recorded');
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('menuModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+
+    
+    
+    </script>
+
+
+    
+</body>
+</html>
